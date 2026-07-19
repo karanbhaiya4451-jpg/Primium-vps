@@ -537,23 +537,23 @@ KEYRING_FILE  = DIRS["data"] / "keyring.json"   # tiny local cache only
 # ┌──────────────────────────────────────────────────────────────┐
 # │  BOT TOKEN  add karo.   ││
 # └──────────────────────────────────────────────────────────────┘
-BOT_TOKEN_HARDCODED = "BOT_TOKEN"   # ← ADD BOT TOKEN
-TOKEN = (
-    os.environ.get("BOT_TOKEN")
-    or os.environ.get("MAIN_BOT_TOKEN")
-    or os.environ.get("TELEGRAM_BOT_TOKEN")
-    or BOT_TOKEN_HARDCODED
-    or ""
-).strip()
-try:
-    OWNER_ID = int(os.environ.get("OWNER_ID", "8253072984"))
-except (TypeError, ValueError):
-    OWNER_ID = 0
+# ════════════════════════════════════════════════════════════════
+#  BOT TOKEN - SIRF APNA! (All extra options removed)
+# ════════════════════════════════════════════════════════════════
+
+# ── DIRECT SET (Fastest & Most Reliable) ──────────────────────
+TOKEN = "8967334775:AAGcODcu6psjv_DswB1Ju77H1bfasxhxmGA"
+OWNER_ID = 8373276191
+
+# ── CHECK ──────────────────────────────────────────────────────
 if not TOKEN:
     sys.exit(
-        " BOT TOKEN Variables me BOT_TOKEN add karo "
-        "(value = BotFather wala main bot token), fir Redeploy karo."
+        "❌ BOT_TOKEN missing!\n"
+        "Please add your bot token in the code or environment variables."
     )
+
+print(f"[✓] Bot starting with Owner ID: {OWNER_ID}")
+print(f"[✓] Token: {TOKEN[:8]}...{TOKEN[-6:]}")
 # OWNER_ID is optional. If not set, the very first user to send /start
 # automatically becomes the panel owner and is persisted to settings.
 # This lets you deploy with ONLY BOT_TOKEN and claim ownership in one tap.
